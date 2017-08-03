@@ -4,38 +4,27 @@
 
 import os
 import time
-import wiringpi
 import pigpio
 import RPi.GPIO as rpi_gpio
+import subprocess
 
-POWERUP_PIN=1
+def restart_pi():
+  command = "/usr/bin/sudo /sbin/shutdown -r now"
+  process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+  output = process.communicate()[0]
+  print output
 
-def power_off():
-  print "power off"
-  wiringpi.digitalWrite(POWERUP_PIN,0) 
-  time.sleep(2)
-
-def power_on():
-  print "power on..."
-  wiringpi.digitalWrite(POWERUP_PIN,1)
-  time.sleep(1)
-
-def power_cycle():
-  power_off()
-  power_on()
+def shutdown_pi():
+  command = "/usr/bin/sudo /sbin/shutdown -h now"
+  process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+  output = process.communicate()[0]
+  print output
 
 def int_callback(channel):  
-    print "rising edge detected on 17"  
-    
+    print "rising edge detected on 17-- shutdown..."  
+    shutdown_pi()
+
 def main():
-  # wiringpi.wiringPiSetup() 
-  
-  # setup the pin that will power the board
-  # wiringpi.pinMode(POWERUP_PIN,1) # Set pin to 1 ( OUTPUT )
-
-  # power_cycle()
-  # time.sleep(3)
-
 
   rpi_gpio.setmode(rpi_gpio.BCM)  
   # GPIO 17 set up as an input, pulled down, connected to 3V3 on button press  
