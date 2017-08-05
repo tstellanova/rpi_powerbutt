@@ -1,0 +1,8 @@
+[package]
+name = "rusty_pi_butt"
+version = "0.1.0"
+authors = ["pi"]
+
+[dependencies]
+rust-pigpio = "0.2.0"
+
