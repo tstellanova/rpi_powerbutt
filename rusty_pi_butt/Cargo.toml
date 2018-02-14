@@ -1,8 +1,11 @@
 [package]
 name = "rusty_pi_butt"
 version = "0.1.0"
-authors = ["pi"]
+authors = ["tstellanova"]
 
 [dependencies]
-rust-pigpio = "0.2.0"
+rustgpio = "0.1.0"
+
+[patch.crates-io]
+rustgpio = { path = "../../rust-rpi/rustgpio" }
 

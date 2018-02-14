@@ -1,14 +1,21 @@
-[root]
-name = "rusty_pi_butt"
+[[package]]
+name = "byteorder"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rustgpio"
 version = "0.1.0"
 dependencies = [
- "rust-pigpio 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "byteorder 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "rust-pigpio"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
+name = "rusty_pi_butt"
+version = "0.1.0"
+dependencies = [
+ "rustgpio 0.1.0",
+]
 
 [metadata]
-"checksum rust-pigpio 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "5e42cf7e4445497bbdcf7e8a6cdef2b51c51f95c2c8744c934d029a1719c77f8"
+"checksum byteorder 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)" = "0fc10e8cc6b2580fda3f36eb6dc5316657f812a3df879a44a66fc9f0fdbc4855"
